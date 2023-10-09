@@ -25,3 +25,20 @@ isActive = false;
 var isValid = 5 > 6;
 Console.WriteLine(!isValid);
 
+// funkcje
+var number1 = 5;
+var number2 = 10;
+
+// operatory relacyjne
+// ==, !=, <, >, =<, =>
+
+// operatory logiczne
+// && - i, || - lub, ! - NOT, negacja
+
+if (name == "Marek" && myAge < 50)
+{
+    Console.WriteLine("Jestem "+name+" przed "+50);
+} else
+{
+    Console.WriteLine("Nie jestem " + name + " przed " + 50);
+}
