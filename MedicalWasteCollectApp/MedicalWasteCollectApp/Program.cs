@@ -32,7 +32,6 @@ foreach (char letter in letters)
         counter[0]++;
     } 
     else if (letter == '1')
-    else if (letter == '1')
     {
         counter[1]++;
     }
