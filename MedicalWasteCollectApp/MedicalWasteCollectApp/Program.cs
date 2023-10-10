@@ -1,4 +1,17 @@
-﻿List<int> loads = new List<int>();
+﻿Truck truck1 = new Truck();
+Truck truck2 = new Truck();
+Truck truck3 = new Truck();
+Truck truck4 = new Truck();
+
+truck1.regNumber = "SK2334H";
+
+class Truck
+{
+    public string regNumber;
+    private string vin;
+}
+
+List<int> loads = new List<int>();
 loads.Add(76);
 loads.Add(37);
 loads.Add(13);
