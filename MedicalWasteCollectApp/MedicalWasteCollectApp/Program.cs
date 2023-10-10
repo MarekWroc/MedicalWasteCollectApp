@@ -1,44 +1,11 @@
-﻿// liczby całkowite
+﻿List<int> loads = new List<int>();
+loads.Add(7);
+loads.Add(3);
+loads.Add(1);
+loads.Add(54);
+loads.Add(32);
 
-int myAge = 40;
-int newAge = myAge + 5;
-Console.WriteLine(newAge);
-int myVar = int.MinValue;
-uint myVar2 =  uint.MaxValue;
-ulong myVar3 = ulong.MaxValue;
-
-// liczby zmienno-przecinkowe
-float myNumber = float.MinValue;
-double myNumber2 = double.MaxValue;
-
-// zmienne tekstowe
-string name = "Marek";
-string surname = "7";
-string result = name + surname + myAge;
-Console.WriteLine(result);
-char myVar5 = 'a';
-var result2 = name.ToArray();
-
-//zmienna logiczna
-bool isActive = true;
-isActive = false;
-var isValid = 5 > 6;
-Console.WriteLine(!isValid);
-
-// funkcje
-var number1 = 5;
-var number2 = 10;
-
-// operatory relacyjne
-// ==, !=, <, >, =<, =>
-
-// operatory logiczne
-// && - i, || - lub, ! - NOT, negacja
-
-if (name == "Marek" && myAge < 50)
+for (var i = 0; i < loads.Count; i++)
 {
-    Console.WriteLine("Jestem "+name+" przed "+50);
-} else
-{
-    Console.WriteLine("Nie jestem " + name + " przed " + 50);
+    Console.WriteLine(loads[i]);
 }
