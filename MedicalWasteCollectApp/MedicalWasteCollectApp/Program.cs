@@ -1,14 +1,26 @@
-﻿Truck truck1 = new Truck();
-Truck truck2 = new Truck();
-Truck truck3 = new Truck();
-Truck truck4 = new Truck();
+﻿Truck truck1 = new Truck("SK9453V");
+Truck truck2 = new Truck("SK256HT");
+Truck truck3 = new Truck("SK269HT");
+Truck truck4 = new Truck("SD53722");
 
-truck1.regNumber = "SK2334H";
+truck1.AddWaste(15);
 
 class Truck
 {
-    public string regNumber;
-    private string vin;
+    private string regNumber;
+
+    public Truck(string regNumber)
+    {
+        this.RegNumber = regNumber;
+        this.load = 0;
+    }
+
+    public string RegNumber { get; private set; }
+
+    public viod AddWaste(int load)
+    { 
+        this.load += load;
+    }
 }
 
 List<int> loads = new List<int>();
