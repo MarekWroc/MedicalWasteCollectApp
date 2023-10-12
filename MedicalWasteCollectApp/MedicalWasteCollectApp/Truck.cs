@@ -25,5 +25,10 @@
         {
             this.loads.Add(load);
         }
+
+        public void UnloadWaste()
+        {
+            this.loads.Add(-(this.loads.Sum()));
+        }
     }
 }

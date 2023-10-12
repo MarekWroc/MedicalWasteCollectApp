@@ -10,6 +10,7 @@ var company = Truck.CompanyName;
 truck1.AddWaste(15);
 truck1.AddWaste(7);
 truck1.AddWaste(12);
+truck1.UnloadWaste();
 
 truck2.AddWaste(60);
 truck2.AddWaste(25);
