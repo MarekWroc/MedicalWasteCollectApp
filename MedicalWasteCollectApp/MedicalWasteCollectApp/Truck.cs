@@ -57,10 +57,10 @@
 
             foreach (var load in this.loads)
             {
-                if (load >= 0)
+                if (load > 0)
                 {
                     statistics.Max = Math.Max(statistics.Max, load);
-                    statistics.Min = Math.Max(statistics.Min, load);
+                    statistics.Min = Math.Min(statistics.Min, load);
                     statistics.Average += load;
                     counter++;
                 }

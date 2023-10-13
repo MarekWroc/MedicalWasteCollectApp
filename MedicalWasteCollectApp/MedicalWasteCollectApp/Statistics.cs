@@ -4,8 +4,8 @@
     {
         public float Average;
 
-        public float Min;
+        public int Min;
 
-        public float Max;
+        public int Max;
     }
 }
