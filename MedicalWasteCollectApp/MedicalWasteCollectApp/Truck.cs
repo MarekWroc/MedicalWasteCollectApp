@@ -39,7 +39,14 @@
 
         public void AddWaste(int load)
         {
-            this.loads.Add(load);
+            if (load > 0)
+            {
+                this.loads.Add(load);
+            }
+            else
+            {
+                Console.WriteLine("Wrong input value");
+            }
         }
 
         public void UnloadWaste()
