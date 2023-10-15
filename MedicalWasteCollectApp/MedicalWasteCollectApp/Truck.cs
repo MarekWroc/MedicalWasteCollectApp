@@ -39,7 +39,7 @@
 
         public void AddWaste(int load)
         {
-            if (load > 0)
+            if (load > 0 && load <= this.MaxLoad)
             {
                 this.loads.Add(load);
             }
@@ -47,6 +47,24 @@
             {
                 Console.WriteLine("Wrong input value");
             }
+        }
+
+        public void AddWaste(string load)
+        {
+            if (int.TryParse(load, out int result))
+            {
+                this.AddWaste(result);
+            }
+            else
+            {
+                Console.WriteLine("Input is not intiger");
+            }
+        }
+
+        public void AddWaste(float load)
+        {
+            int result = (int)Math.Ceiling(load);
+            this.AddWaste(result);
         }
 
         public void UnloadWaste()
