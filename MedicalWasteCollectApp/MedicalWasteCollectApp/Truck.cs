@@ -67,6 +67,12 @@
             this.AddWaste(result);
         }
 
+        public void AddWaste(double load)
+        {
+            int result = (int)Math.Ceiling(load);
+            this.AddWaste(result);
+        }
+
         public void UnloadWaste()
         {
             this.loads.Add(-(this.loads.Sum()));
