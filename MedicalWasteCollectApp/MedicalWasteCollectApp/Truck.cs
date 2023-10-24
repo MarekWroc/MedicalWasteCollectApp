@@ -1,4 +1,6 @@
-﻿namespace MedicalWasteCollectApp
+﻿using System.Net.Http.Headers;
+
+namespace MedicalWasteCollectApp
 {
     public class Truck
     {
@@ -98,6 +100,28 @@
             }
 
             statistics.Average /= counter;
+
+            switch (statistics.Average)
+            {
+                case var average when average >= (95/100 * this.MaxLoad):
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= (80 / 100 * this.MaxLoad):
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= (60 / 100 * this.MaxLoad):
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= (40 / 100 * this.MaxLoad):
+                    statistics.AverageLetter = 'D';
+                    break;
+                case var average when average >= (20 / 100 * this.MaxLoad):
+                    statistics.AverageLetter = 'E';
+                    break;
+                default:
+                    statistics.AverageLetter = 'F';
+                    break;
+            }
 
             return statistics;
         }
