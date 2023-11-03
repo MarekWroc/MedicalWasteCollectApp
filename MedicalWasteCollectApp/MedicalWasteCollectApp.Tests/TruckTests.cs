@@ -32,7 +32,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenGetStatisticsCalled_SouldRetuenCorrectAverage()
+        public void WhenGetStatisticsCalled_SouldReturnCorrectAverage()
         {
             // arrange
             var truck = new Truck("SK256HT");
@@ -49,7 +49,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenGetStatisticsCalled_SouldRetuenCorrectMin()
+        public void WhenGetStatisticsCalled_SouldReturnCorrectMin()
         {
             // arrange
             var truck = new Truck("SK256HT");
@@ -66,7 +66,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenGetStatisticsCalled_SouldRetuenCorrectMax()
+        public void WhenGetStatisticsCalled_SouldReturnCorrectMax()
         {
             // arrange
             var truck = new Truck("SK256HT");
@@ -82,6 +82,24 @@ namespace MedicalWasteCollectApp.Tests
             // assert
             Assert.AreEqual(55, statistics.Max);
         }
-
+        [Test]
+        public void WhenGetStatisticsCalled_SouldReturnCurrentTruckFillingLevelAsLetter()
+        {
+            // arrange
+            var truck = new Truck("SK256HT");
+            truck.AddWaste(252);
+            truck.AddWaste(160);
+            truck.AddWaste(330);
+            truck.UnloadWaste();
+            truck.AddWaste(700);
+            truck.AddWaste(256);
+            truck.UnloadWaste();
+            truck.AddWaste(256);
+            truck.AddWaste(256);
+            // act
+            var statistics = truck.GetStatistics();
+            // assert
+            Assert.AreEqual('D', statistics.FillingAsLetter);
+        }
     }
 }

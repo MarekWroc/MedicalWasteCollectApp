@@ -21,6 +21,7 @@ namespace MedicalWasteCollectApp
         }
 
         public string RegNumber { get; private set; }
+        
         public int MaxLoad { get; private set; }
 
         public int MaxLoads
@@ -85,6 +86,7 @@ namespace MedicalWasteCollectApp
             var statistics = new Statistics();
             int counter = 0;
             statistics.Average = 0;
+            statistics.FillingAsLetter = '-';
             statistics.Max = int.MinValue;
             statistics.Min = int.MaxValue;
 
@@ -101,28 +103,27 @@ namespace MedicalWasteCollectApp
 
             statistics.Average /= counter;
 
-            switch (statistics.Average)
+            switch (this.LoadsSum)
             {
-                case var average when average >= (95/100 * this.MaxLoad):
-                    statistics.AverageLetter = 'A';
+                case var sum when sum >= (int)(0.95 * this.MaxLoad):
+                    statistics.FillingAsLetter = 'A';
                     break;
-                case var average when average >= (80 / 100 * this.MaxLoad):
-                    statistics.AverageLetter = 'B';
+                case var sum when sum >= (int)(0.8 * this.MaxLoad):
+                    statistics.FillingAsLetter = 'B';
                     break;
-                case var average when average >= (60 / 100 * this.MaxLoad):
-                    statistics.AverageLetter = 'C';
+                case var sum when sum >= (int)(0.6 * this.MaxLoad):
+                    statistics.FillingAsLetter = 'C';
                     break;
-                case var average when average >= (40 / 100 * this.MaxLoad):
-                    statistics.AverageLetter = 'D';
+                case var sum when sum >= (int)(0.4 * this.MaxLoad):
+                    statistics.FillingAsLetter = 'D';
                     break;
-                case var average when average >= (20 / 100 * this.MaxLoad):
-                    statistics.AverageLetter = 'E';
+                case var sum when sum >= (int)(0.2 * this.MaxLoad):
+                    statistics.FillingAsLetter = 'E';
                     break;
                 default:
-                    statistics.AverageLetter = 'F';
+                    statistics.FillingAsLetter = '-';
                     break;
             }
-
             return statistics;
         }
     }

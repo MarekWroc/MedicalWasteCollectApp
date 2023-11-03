@@ -4,7 +4,7 @@
     {
         public float Average { get; set; }
 
-        public float AverageLetter { get; set; }
+        public char FillingAsLetter { get; set; }
 
         public int Min { get; set; }
 
