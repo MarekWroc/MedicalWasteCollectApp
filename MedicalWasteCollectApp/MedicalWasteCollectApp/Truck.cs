@@ -1,6 +1,4 @@
-﻿using System.Net.Http.Headers;
-
-namespace MedicalWasteCollectApp
+﻿namespace MedicalWasteCollectApp
 {
     public class Truck
     {
@@ -42,13 +40,23 @@ namespace MedicalWasteCollectApp
 
         public void AddWaste(int load)
         {
-            if (load > 0 && load <= this.MaxLoad)
+            if (load > 0 && load <= (this.MaxLoad - this.LoadsSum))
             {
                 this.loads.Add(load);
             }
+            else if (load > 0 && load > (this.MaxLoad - this.LoadsSum) && (this.MaxLoad - this.LoadsSum) != 0)
+            {
+                Console.WriteLine($"Przyjęto część ładunku, tj. {(this.MaxLoad - this.LoadsSum)} z {load}.");
+                Console.WriteLine($"Pozostaje nieodebrane: {(load - (this.MaxLoad - this.LoadsSum))}.");
+                this.loads.Add((this.MaxLoad - this.LoadsSum));
+            }
+            else if (load > 0 && load > (this.MaxLoad - this.LoadsSum) && (this.MaxLoad - this.LoadsSum) == 0)
+            {
+                throw new Exception("Pojazd w pełni załadowany.");
+            }
             else
             {
-                Console.WriteLine("Wrong input value");
+                throw new Exception("Wrong input value");
             }
         }
 
@@ -60,7 +68,7 @@ namespace MedicalWasteCollectApp
             }
             else
             {
-                Console.WriteLine("Input is not intiger");
+                throw new Exception("Input is not intiger");
             }
         }
 

@@ -3,7 +3,7 @@ namespace MedicalWasteCollectApp.Tests
     public class Tests
     {
         [Test]
-        public void WhenTruckCollectsLoads_SouldShowSum()
+        public void WhenTruckCollectsLoads_ShouldShowSum()
         {
             // arrange
             var truck = new Truck("SK9453V");
@@ -17,7 +17,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenTruckWasUnload_SouldShowZero()
+        public void WhenTruckWasUnload_ShouldShowZero()
         {
             // arrange
             var truck = new Truck("SK9453V");
@@ -32,7 +32,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenGetStatisticsCalled_SouldReturnCorrectAverage()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectAverage()
         {
             // arrange
             var truck = new Truck("SK256HT");
@@ -49,7 +49,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenGetStatisticsCalled_SouldReturnCorrectMin()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMin()
         {
             // arrange
             var truck = new Truck("SK256HT");
@@ -66,7 +66,7 @@ namespace MedicalWasteCollectApp.Tests
         }
 
         [Test]
-        public void WhenGetStatisticsCalled_SouldReturnCorrectMax()
+        public void WhenGetStatisticsCalled_ShouldReturnCorrectMax()
         {
             // arrange
             var truck = new Truck("SK256HT");
@@ -83,7 +83,7 @@ namespace MedicalWasteCollectApp.Tests
             Assert.AreEqual(55, statistics.Max);
         }
         [Test]
-        public void WhenGetStatisticsCalled_SouldReturnCurrentTruckFillingLevelAsLetter()
+        public void WhenGetStatisticsCalled_ShouldReturnCurrentTruckFillingLevelAsLetter()
         {
             // arrange
             var truck = new Truck("SK256HT");
