@@ -14,49 +14,57 @@ Console.WriteLine($"Pojazd: {truck.RegNumber}, ładowność: {truck.MaxLoad}");
 Console.WriteLine("----------------------------");
 Console.WriteLine("");
 
-Console.WriteLine("Co zamierzasz zrobić?");
-Console.WriteLine("");
-Console.WriteLine("1 - Załadunek");
-Console.WriteLine("2 - Rozładunek");
-Console.WriteLine("3 - Dostępna ładowność");
-Console.WriteLine("4 - Całkowita ładowność");
-Console.WriteLine("Q - Wyjście");
-Console.Write("Więc? :");
-
 while (true)
 {
+    Console.WriteLine("Co zamierzasz zrobić?");
+    Console.WriteLine("");
+    Console.WriteLine("1 - Załadunek");
+    Console.WriteLine("2 - Rozładunek");
+    Console.WriteLine("3 - Dostępna ładowność");
+    Console.WriteLine("4 - Całkowita ładowność");
+    Console.WriteLine("Q - Wyjście");
+    Console.Write("Więc? :");
+
     var userInput = Console.ReadLine();
 
     if (userInput == "q" || userInput == "Q")
     {
+        Console.WriteLine("Kończymy na dziś.");
         break;
     }
-    
+
     switch (userInput)
     {
         case "1":
+            Console.WriteLine("Jesteś w załadunek");
             while (true)
             {
-                break;
+                Console.Write("Ile odpadów zabieramy? Podaj masę (powrót do wczesniejszego menu - q):");
+                var load = Console.ReadLine();
+                truck.AddWaste(load);
+                if (load == "q" || load == "Q")
+                {
+                    break;
+                }
             }
             break;
         case "2":
-            while (true)
+            Console.WriteLine("Jesteś w rozładunek");
+            Console.Write("Potwierdź rozładunek wprowadzając dowolną wartość i/lub naciśnij ENTER (powrót do wczesniejszego menu bez rozładunku - q):");
+            var unload = Console.ReadLine();
+            if (unload != "q" || unload != "Q")
             {
-                break;
-            }
+                truck.UnloadWaste();
+            } 
             break;
         case "3":
-            while (true)
-            {
-                break;
-            }
+            Console.WriteLine($"Twoja dostępna ładowność to {(truck.MaxLoad - truck.LoadsSum)}kg.");
             break;
         case "4":
-            while (true)
-            {
-                break;
-            }
+            Console.WriteLine($"Twoja całkowita ładowność to {truck.MaxLoad}kg.");
+            break;
+        default: 
+            Console.WriteLine("Błędna wartość. Wprowadź ponownie lub zakończ (q):");
             break;
     }
 }
