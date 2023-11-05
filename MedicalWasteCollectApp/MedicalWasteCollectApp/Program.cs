@@ -36,25 +36,34 @@ while (true)
     switch (userInput)
     {
         case "1":
-            Console.WriteLine("Jesteś w załadunek");
+            Console.WriteLine("Jesteś w załadunek.");
             while (true)
             {
                 Console.Write("Ile odpadów zabieramy? Podaj masę (powrót do wczesniejszego menu - q):");
                 var load = Console.ReadLine();
-                truck.AddWaste(load);
                 if (load == "q" || load == "Q")
                 {
                     break;
                 }
+
+                try
+                {
+                    truck.AddWaste(load);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Błąd: {ex.Message}");
+                }
             }
             break;
         case "2":
-            Console.WriteLine("Jesteś w rozładunek");
+            Console.WriteLine("Jesteś w rozładunek.");
             Console.Write("Potwierdź rozładunek wprowadzając dowolną wartość i/lub naciśnij ENTER (powrót do wczesniejszego menu bez rozładunku - q):");
             var unload = Console.ReadLine();
             if (unload != "q" || unload != "Q")
             {
                 truck.UnloadWaste();
+                Console.WriteLine($"Pojazd rozładowany.");
             } 
             break;
         case "3":
@@ -64,7 +73,7 @@ while (true)
             Console.WriteLine($"Twoja całkowita ładowność to {truck.MaxLoad}kg.");
             break;
         default: 
-            Console.WriteLine("Błędna wartość. Wprowadź ponownie lub zakończ (q):");
+            throw new Exception("Błędna wartość. Wprowadź ponownie lub zakończ (q):");
             break;
     }
 }
