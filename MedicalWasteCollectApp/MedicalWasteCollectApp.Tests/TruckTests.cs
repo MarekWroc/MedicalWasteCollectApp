@@ -6,7 +6,7 @@ namespace MedicalWasteCollectApp.Tests
         public void WhenTruckCollectsLoads_ShouldShowSum()
         {
             // arrange
-            var truck = new Truck("SK9453V");
+            var truck = new Truck("WDBA901A905637962", "SK9453V");
             truck.AddWaste(19);
             truck.AddWaste(52);
             truck.AddWaste(7);
@@ -20,7 +20,7 @@ namespace MedicalWasteCollectApp.Tests
         public void WhenTruckWasUnload_ShouldShowZero()
         {
             // arrange
-            var truck = new Truck("SK9453V");
+            var truck = new Truck("WDBA901A905637962", "SK9453V");
             truck.AddWaste(19);
             truck.AddWaste(52);
             truck.AddWaste(7);
@@ -35,7 +35,7 @@ namespace MedicalWasteCollectApp.Tests
         public void WhenGetStatisticsCalled_ShouldReturnCorrectAverage()
         {
             // arrange
-            var truck = new Truck("SK256HT");
+            var truck = new Truck("WDBA901A9056399432", "SK256HT");
             truck.AddWaste(22);
             truck.AddWaste(16);
             truck.AddWaste(33);
@@ -52,7 +52,7 @@ namespace MedicalWasteCollectApp.Tests
         public void WhenGetStatisticsCalled_ShouldReturnCorrectMin()
         {
             // arrange
-            var truck = new Truck("SK256HT");
+            var truck = new Truck("WDBA901A9056399432", "SK256HT");
             truck.AddWaste(5);
             truck.AddWaste(92);
             truck.AddWaste(14);
@@ -69,7 +69,7 @@ namespace MedicalWasteCollectApp.Tests
         public void WhenGetStatisticsCalled_ShouldReturnCorrectMax()
         {
             // arrange
-            var truck = new Truck("SK256HT");
+            var truck = new Truck("WDBA901A9056399432", "SK256HT");
             truck.AddWaste(2);
             truck.AddWaste(55);
             truck.AddWaste(18);
@@ -86,7 +86,7 @@ namespace MedicalWasteCollectApp.Tests
         public void WhenGetStatisticsCalled_ShouldReturnCurrentTruckFillingLevelAsLetter()
         {
             // arrange
-            var truck = new Truck("SK256HT");
+            var truck = new Truck("WDBA901A9056399432", "SK256HT");
             truck.AddWaste(252);
             truck.AddWaste(160);
             truck.AddWaste(330);
