@@ -37,6 +37,7 @@
         public int Max { get; private set; }
 
         public int Sum { get; private set; }
+
         public int Filling { get; private set; }
 
         public int Count { get; private set; }
@@ -51,11 +52,15 @@
 
         public void AddWaste(int waste)
         {
-            this.Count++;
-            this.Sum += waste;
             this.Filling += waste;
-            this.Min = Math.Min(waste, this.Min);
-            this.Max = Math.Max(waste, this.Max);
+
+            if (waste > 0)
+            {
+                this.Count++;
+                this.Sum += waste;
+                this.Min = Math.Min(waste, this.Min);
+                this.Max = Math.Max(waste, this.Max);
+            }
         }
     }
 }

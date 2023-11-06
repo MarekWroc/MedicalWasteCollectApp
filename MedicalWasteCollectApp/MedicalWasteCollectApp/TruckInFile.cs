@@ -24,6 +24,15 @@ namespace MedicalWasteCollectApp
 
         public int MaxLoad { get; private set; }
 
+        public string FileName
+        {
+            get
+            {
+                string filename = fileName; 
+                return filename;
+            }
+        }
+
         public int LoadsSum
         {
             get
@@ -66,7 +75,7 @@ namespace MedicalWasteCollectApp
 
                 Console.WriteLine($"Przyjęto część ładunku, tj. {availibeLoadSpace} z {load}.");
                 Console.WriteLine($"Pozostaje nieodebrane: {(load - availibeLoadSpace)}.");
-                
+
                 using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(availibeLoadSpace);
@@ -118,23 +127,19 @@ namespace MedicalWasteCollectApp
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
+
             
-            if (File.Exists(fileName))
-            {
                 using (var reader = File.OpenText(fileName))
                 {
                     var line = reader.ReadLine();
                     while (line != null)
                     {
                         var waste = int.Parse(line);
-                        if (waste > 0)
-                        {
-                            statistics.AddWaste(waste);
-                        }
+                        statistics.AddWaste(waste);
                         line = reader.ReadLine();
-                    }                   
+                    }
                 }
-            }
+            
             return statistics;
         }
 

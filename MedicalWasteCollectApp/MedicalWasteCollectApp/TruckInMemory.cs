@@ -15,7 +15,7 @@
             this.MaxLoad = 1000;
         }
 
-        public TruckInMemory(string vin, string regNumber, int maxLoad) 
+        public TruckInMemory(string vin, string regNumber, int maxLoad)
             : base(vin, regNumber, maxLoad)
         {
         }
@@ -89,12 +89,18 @@
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            
-            foreach (var waste in this.loads)
-            {
-                statistics.AddWaste(waste);
-            }
 
+            if (this.loads.Count > 0)
+            {
+                foreach (var load in this.loads)
+                {
+                    statistics.AddWaste(load);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Brak danych do stworzenia statystyk");
+            }
             return statistics;
         }
     }
