@@ -5,12 +5,12 @@
         public float Average
         {
             get
-            { 
+            {
                 return this.Sum / this.Count;
             }
         }
 
-        public char FillingAsLetter 
+        public char FillingAsLetter
         {
             get
             {
@@ -51,14 +51,11 @@
 
         public void AddWaste(int waste)
         {
-            if (waste > 0)
-            {
-                this.Count++;
-                this.Sum += waste;
-            }
+            this.Count++;
+            this.Sum += waste;
             this.Filling += waste;
             this.Min = Math.Min(waste, this.Min);
-            this.Max = Math.Min(waste, this.Max);
+            this.Max = Math.Max(waste, this.Max);
         }
     }
 }

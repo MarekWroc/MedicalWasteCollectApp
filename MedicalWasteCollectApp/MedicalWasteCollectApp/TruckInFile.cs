@@ -1,4 +1,6 @@
-﻿namespace MedicalWasteCollectApp
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace MedicalWasteCollectApp
 {
     public class TruckInFile : TruckBase
     {
@@ -116,11 +118,7 @@
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            int counter = 0;
-            statistics.Average = 0;
-            statistics.Max = int.MinValue;
-            statistics.Min = int.MaxValue;
-
+            
             if (File.Exists(fileName))
             {
                 using (var reader = File.OpenText(fileName))
@@ -128,40 +126,13 @@
                     var line = reader.ReadLine();
                     while (line != null)
                     {
-                        var load = int.Parse(line);
-                        if (load > 0)
+                        var waste = int.Parse(line);
+                        if (waste > 0)
                         {
-                            statistics.Max = Math.Max(statistics.Max, load);
-                            statistics.Min = Math.Min(statistics.Min, load);
-                            statistics.Average += load;
-                            counter++;
+                            statistics.AddWaste(waste);
                         }
                         line = reader.ReadLine();
-                    }
-
-                    statistics.Average /= counter;
-
-                    switch (this.LoadsSum)
-                    {
-                        case var sum when sum >= (int)(0.95 * this.MaxLoad):
-                            statistics.FillingAsLetter = 'A';
-                            break;
-                        case var sum when sum >= (int)(0.8 * this.MaxLoad):
-                            statistics.FillingAsLetter = 'B';
-                            break;
-                        case var sum when sum >= (int)(0.6 * this.MaxLoad):
-                            statistics.FillingAsLetter = 'C';
-                            break;
-                        case var sum when sum >= (int)(0.4 * this.MaxLoad):
-                            statistics.FillingAsLetter = 'D';
-                            break;
-                        case var sum when sum >= (int)(0.2 * this.MaxLoad):
-                            statistics.FillingAsLetter = 'E';
-                            break;
-                        default:
-                            statistics.FillingAsLetter = '-';
-                            break;
-                    }
+                    }                   
                 }
             }
             return statistics;
