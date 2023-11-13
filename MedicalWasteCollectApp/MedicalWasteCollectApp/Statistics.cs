@@ -6,7 +6,7 @@
         {
             get
             {
-                return this.Sum / this.Count;
+                return (float)Math.Round((this.Sum / this.Count), 1);
             }
         }
 
@@ -36,7 +36,7 @@
 
         public int Max { get; private set; }
 
-        public int Sum { get; private set; }
+        public double Sum { get; private set; }
 
         public int Filling { get; private set; }
 

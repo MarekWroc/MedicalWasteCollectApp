@@ -7,10 +7,7 @@ while (true)
 
     if (versionSelection == "q" || versionSelection == "Q")
     {
-        Console.WriteLine("");
-        Console.WriteLine("------------------------------------");
-        Console.WriteLine("         Kończymy na dziś.          ");
-        Console.WriteLine("------------------------------------");
+        Txts.PrintWelcome();
         break;
     }
 
@@ -39,14 +36,7 @@ while (true)
 
             while (true)
             {
-                Console.WriteLine("");
-                Console.WriteLine("Co zamierzasz zrobić?");
-                Console.WriteLine("");
-                Console.WriteLine("1 - Załadunek");
-                Console.WriteLine("2 - Rozładunek");
-                Console.WriteLine("3 - Wyświetla statystyki");
-                Console.WriteLine("Q - Wyjście");
-                Console.Write("Więc? :");
+                Txts.MainMenu();
 
                 var userInput = Console.ReadLine();
 
@@ -59,10 +49,8 @@ while (true)
                 switch (userInput)
                 {
                     case "1":
-                        Console.WriteLine("");
-                        Console.WriteLine("------------------------------------");
-                        Console.WriteLine("Jesteś w załadunek.");
-                        Console.WriteLine("");
+                        Txts.InLoad();
+
                         while (true)
                         {
                             Console.Write("Ile odpadów zabieramy? Podaj masę (powrót do wczesniejszego menu - q):");
@@ -83,25 +71,20 @@ while (true)
                         }
                         break;
                     case "2":
-                        Console.WriteLine("");
-                        Console.WriteLine("------------------------------------");
-                        Console.WriteLine("Jesteś w rozładunek.");
-                        Console.Write("Potwierdź rozładunek wprowadzając dowolną wartość i/lub naciśnij ENTER (powrót do wczesniejszego menu bez rozładunku - q):");
+                        Txts.ConfirmUnload();
+
                         var unload = Console.ReadLine();
                         if (unload != "q" || unload != "Q")
                         {
                             if (truck_mem.LoadsSum > 0)
                             {
                                 truck_mem.UnloadWaste();
-                                Console.WriteLine("");
-                                Console.WriteLine("------------------------------------");
-                                Console.WriteLine($"Pojazd rozładowany.");
+
+                                Txts.UnloadConfirmation();
                             }
                             else
                             {
-                                Console.WriteLine("");
-                                Console.WriteLine("------------------------------------");
-                                Console.WriteLine("Pojazd jest pusty, nie ma nic do rozładowania.");
+                                Txts.CantUnload();
                             }
                         }
                         break;
@@ -145,14 +128,7 @@ while (true)
 
             while (true)
             {
-                Console.WriteLine("");
-                Console.WriteLine("Co zamierzasz zrobić?");
-                Console.WriteLine("");
-                Console.WriteLine("1 - Załadunek");
-                Console.WriteLine("2 - Rozładunek");
-                Console.WriteLine("3 - Wyświetla statystyki");
-                Console.WriteLine("Q - Wyjście");
-                Console.Write("Więc? :");
+                Txts.MainMenu();
 
                 var userInput = Console.ReadLine();
 
@@ -164,10 +140,8 @@ while (true)
                 switch (userInput)
                 {
                     case "1":
-                        Console.WriteLine("");
-                        Console.WriteLine("------------------------------------");
-                        Console.WriteLine("Jesteś w załadunek.");
-                        Console.WriteLine("");
+                        Txts.InLoad();
+
                         while (true)
                         {
                             Console.Write("Ile odpadów zabieramy? Podaj masę (powrót do wczesniejszego menu - q):");
@@ -188,25 +162,20 @@ while (true)
                         }
                         break;
                     case "2":
-                        Console.WriteLine("");
-                        Console.WriteLine("------------------------------------");
-                        Console.WriteLine("Jesteś w rozładunek.");
-                        Console.Write("Potwierdź rozładunek wprowadzając dowolną wartość i/lub naciśnij ENTER (powrót do wczesniejszego menu bez rozładunku - q):");
+                        Txts.ConfirmUnload();
+
                         var unload = Console.ReadLine();
                         if (unload != "q" || unload != "Q")
                         {
                             if (truck.LoadsSum > 0)
                             {
                                 truck.UnloadWaste();
-                                Console.WriteLine("");
-                                Console.WriteLine("------------------------------------");
-                                Console.WriteLine($"Pojazd rozładowany.");
+
+                                Txts.UnloadConfirmation();
                             }
                             else
                             {
-                                Console.WriteLine("");
-                                Console.WriteLine("------------------------------------");
-                                Console.WriteLine("Pojazd jest pusty, nie ma nic do rozładowania.");
+                                Txts.CantUnload();
                             }
                         }
                         break;
@@ -238,4 +207,3 @@ while (true)
             break;
     }
 }
-

@@ -91,30 +91,6 @@ namespace MedicalWasteCollectApp
             }
         }
 
-        public override void AddWaste(string load)
-        {
-            if (int.TryParse(load, out int result))
-            {
-                this.AddWaste(result);
-            }
-            else
-            {
-                throw new Exception("Podana wartość nie jest liczbą.");
-            }
-        }
-
-        public override void AddWaste(float load)
-        {
-            int result = (int)Math.Ceiling(load);
-            this.AddWaste(result);
-        }
-
-        public override void AddWaste(double load)
-        {
-            int result = (int)Math.Ceiling(load);
-            this.AddWaste(result);
-        }
-
         public override void UnloadWaste()
         {
             var loadsToUnload = -(this.LoadsSum);
