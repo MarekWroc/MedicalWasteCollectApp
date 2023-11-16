@@ -7,7 +7,7 @@ while (true)
 
     if (versionSelection == "q" || versionSelection == "Q")
     {
-        Txts.PrintWelcome();
+        TruckTxts.PrintWelcome();
         break;
     }
 
@@ -36,7 +36,7 @@ while (true)
 
             while (true)
             {
-                Txts.MainMenu();
+                TruckTxts.MainMenu();
 
                 var userInput = Console.ReadLine();
 
@@ -49,7 +49,7 @@ while (true)
                 switch (userInput)
                 {
                     case "1":
-                        Txts.InLoad();
+                        TruckTxts.InLoad();
 
                         while (true)
                         {
@@ -71,7 +71,7 @@ while (true)
                         }
                         break;
                     case "2":
-                        Txts.ConfirmUnload();
+                        TruckTxts.ConfirmUnload();
 
                         var unload = Console.ReadLine();
                         if (unload != "q" || unload != "Q")
@@ -80,11 +80,11 @@ while (true)
                             {
                                 truck_mem.UnloadWaste();
 
-                                Txts.UnloadConfirmation();
+                                TruckTxts.UnloadConfirmation();
                             }
                             else
                             {
-                                Txts.CantUnload();
+                                TruckTxts.CantUnload();
                             }
                         }
                         break;
@@ -128,7 +128,7 @@ while (true)
 
             while (true)
             {
-                Txts.MainMenu();
+                TruckTxts.MainMenu();
 
                 var userInput = Console.ReadLine();
 
@@ -140,7 +140,7 @@ while (true)
                 switch (userInput)
                 {
                     case "1":
-                        Txts.InLoad();
+                        TruckTxts.InLoad();
 
                         while (true)
                         {
@@ -162,7 +162,7 @@ while (true)
                         }
                         break;
                     case "2":
-                        Txts.ConfirmUnload();
+                        TruckTxts.ConfirmUnload();
 
                         var unload = Console.ReadLine();
                         if (unload != "q" || unload != "Q")
@@ -171,11 +171,11 @@ while (true)
                             {
                                 truck.UnloadWaste();
 
-                                Txts.UnloadConfirmation();
+                                TruckTxts.UnloadConfirmation();
                             }
                             else
                             {
-                                Txts.CantUnload();
+                                TruckTxts.CantUnload();
                             }
                         }
                         break;
